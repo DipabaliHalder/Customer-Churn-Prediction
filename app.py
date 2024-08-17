@@ -77,13 +77,14 @@ with tab2:
 with tab3:
     data=df.drop(columns=['Geography','Gender'])
     models = [[SVC(), "Support Vector Machine"],
+         [XGBClassifier(), "XG Boost Classifier"],
          [LogisticRegression(), "Logistic regression"],
          [RandomForestClassifier(), "Random Forest"],
          [DecisionTreeClassifier(), "Decision Trees"]]
     algo=[]
     for i in models:
         algo.append(i[1])
-    ag=option = st.selectbox("Choose the Algorithm to be used:",algo,index=None,placeholder="Select an option")
+    ag=option = st.selectbox("Choose the Algorithm to be used:",sorted(algo),index=None,placeholder="Select an option")
     per=st.slider("Choose the percentage of data for Training:",min_value=10,max_value=100)
     y=data['Exited']
     X=data.drop(['Exited'], axis=1)
