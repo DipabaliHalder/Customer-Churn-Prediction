@@ -1,0 +1,24 @@
+It contains information on bank customers who either left the bank or continue to be a customer. 
+The dataset includes the following attributes:
+
+1. Credit Score: A numerical value representing the customer's credit score
+
+2. Geography: The country where the customer resides (France, Spain or Germany)
+
+3. Gender: The customer's gender (Male or Female)
+
+4. Age: The customer's age.
+
+5. Tenure: The number of years the customer has been with the bank
+
+6. Balance: The customer's account balance
+
+7. NumOfProducts: The number of bank products the customer uses (e.g., savings account, credit card)
+
+8. HasCrCard: Whether the customer has a credit card (1 = yes, 0 = no)
+
+9. IsActiveMember: Whether the customer is an active member (1 = yes, 0 = no)
+
+10. EstimatedSalary: The estimated salary of the customer
+
+11. Exited: Whether the customer has churned (1 = yes, 0 = no)
