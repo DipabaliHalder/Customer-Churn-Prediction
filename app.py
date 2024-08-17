@@ -13,6 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 import xgboost as xgb
 from mlxtend.plotting import plot_confusion_matrix
 import pickle,os,joblib
+from xgboost import XGBClassifier
 
 df=pd.read_csv("Churn_Prediction.csv")
 det="dataset_details.txt"
@@ -44,8 +45,8 @@ with tab2:
     fig, ax = plt.subplots()
     sns.kdeplot(x=df['Tenure'], hue=df['Exited'], ax=ax, shade=True)
     st.pyplot(fig)
-    st.text("-> The leser the Tenure, more are the chances to Churn.")
-    st.text("-> Way to reduce it: Try to retain the customers for longer tenure")
+    st.write("-> The leser the Tenure, more are the chances to Churn.")
+    st.write("-> Way to reduce it: Try to retain the customers for longer tenure")
     
     d=st.columns(2)
     c=["Geography","Gender"]
@@ -55,8 +56,8 @@ with tab2:
             st.subheader(f"{j} vs Exited")
             sns.countplot(x=df[j],hue=df['Exited'],palette="muted")
             st.pyplot(fig)
-    st.text("-> Customer Churn is less in Spain")
-    st.text("-> Female customers are more likely to Churn comapred to male customers")
+    st.write("-> Customer Churn is less in Spain")
+    st.write("-> Female customers are more likely to Churn comapred to male customers")
 
     d=st.columns(2)
     c=["IsActiveMember","HasCrCard"]
@@ -66,17 +67,18 @@ with tab2:
             st.subheader(f"{j} vs Exited")
             sns.countplot(x=df[j],hue=df['Exited'],palette="muted")
             st.pyplot(fig)
-    st.text("-> Customers who donot have credit card and is not an active member are more likely to churn")
+    st.write("-> Customers who donot have credit card and is not an active member are more likely to churn")
 
     st.subheader("Credit Score vs Churn")
     fig,ax=plt.subplots()
     sns.histplot(x=df['CreditScore'],hue=df['Exited'],bins=60)
     st.pyplot(fig)
-    st.text("-> For good Credit Score custumer churn is less")
+    st.write("-> For good Credit Score custumer churn is less")
 
 with tab3:
     data=df.drop(columns=['Geography','Gender'])
-    models = [[SVC(), "Support Vector Machine"],[XGBClassifier(), "XG Boost Classifier"],
+    models = [[SVC(), "Support Vector Machine"],
+              [XGBClassifier(), "XG Boost Classifier"],
          [LogisticRegression(), "Logistic regression"],
          [RandomForestClassifier(), "Random Forest"],
          [DecisionTreeClassifier(), "Decision Trees"]]
