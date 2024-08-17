@@ -76,8 +76,7 @@ with tab2:
 
 with tab3:
     data=df.drop(columns=['Geography','Gender'])
-    models = [[SVC(), "Support Vector Machine"],
-         [XGBClassifier(), "XG Boost Classifier"],
+    models = [[SVC(), "Support Vector Machine"],[XGBClassifier(), "XG Boost Classifier"],
          [LogisticRegression(), "Logistic regression"],
          [RandomForestClassifier(), "Random Forest"],
          [DecisionTreeClassifier(), "Decision Trees"]]
